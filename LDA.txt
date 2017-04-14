@@ -1,0 +1,21 @@
+LDA
+
+For each article w_j
+1. topic prop, theta_j ~ dirichlet(alpha)
+2. for each word n:
+	a) draw topic assignment z_jn ~ Multi(theta_j)
+	b) draw word: w_jn ~ Multi(beta_z_jn)
+
+
+CTR:
+
+1. for each user i, draw user latent vector u_i ~ N(0, lambda_u * I)
+2. for each item j, 
+	a) draw topic proportion, theta_j ~ dirichlet(alpha)
+	b) draw latent offset e_j ~ N(0, lamba_v * I)
+		set v_j = e_j + theta_j
+	c) for each word w_jn,
+		i. draw topic assignment z_jn ~ Mult(theta_j)
+		ii. draw word w_jn ~ Mult(beta_z_jn)
+3 for each user-item pair, draw raiting
+	r_ij ~ N(u_i*v_i, c_ij)
