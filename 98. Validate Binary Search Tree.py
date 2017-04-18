@@ -21,6 +21,27 @@ Binary tree [1,2,3], return false.
 """
 
 
+class Solution(object):
+  def isValidBST(self, root):
+    import sys
+
+
+  def go(self, node, lo, hi): # node.val must be between lo and hi
+    if not node: return True
+    if node.val >= hi
+      return False
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -30,8 +51,60 @@ Binary tree [1,2,3], return false.
 #         self.right = None
 
 class Solution(object):
-    def isValidBST(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
+  def isValidBST(self, root):
+    """
+    :type root: TreeNode
+    :rtype: bool
+    """
+    if not root: return True
+    a,b = self.helper(root)
+    return b
+
+  def helper(self, node):
+    if not node:
+      return [], True
+    left_list, left_bool = self.helper(node.left)
+    right_list, right_bool = self.helper(node.right)
+    if not left_bool or not right_bool:
+      return [], False
+    node_is_bst = True
+    for left_item in left_list:
+      if not left_item < node.val: 
+        node_is_bst = False
+        break
+    for right_item in right_list:
+      if not right_item > node.val: 
+        node_is_bst = False
+        break
+    val_list = left_list + [node.val] + right_list
+    return val_list, node_is_bst
+
+
+class Solution(object):
+  def isValidBST(self, root):
+    import sys
+    return self.isValidNode(root, -sys.maxint - 1, sys.maxint)
+
+  def isValidNode(self, node, lo, hi):
+    if not node: return True
+    if node.val >= hi or node.val <= lo: return False
+    return self.isValidNode(node.left, lo, node.val) and self.isValidNode(node.right, node.val, hi)
+
+
+
+public class Solution {
+    public boolean isValidBST(TreeNode root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+    
+    public boolean isValidBST(TreeNode root, long minVal, long maxVal) {
+        if (root == null) return true;
+        if (root.val >= maxVal || root.val <= minVal) return false;
+        return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
+    }
+}
+
+
+
+
+
