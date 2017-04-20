@@ -26,6 +26,9 @@ while queue is not empty:
 		add popped to a list
 	append list to result
 
+time: O(n) - visit each node once
+space: O(n) - result list has all elements once
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -50,7 +53,9 @@ class Solution(object):
 				queue = queue[1:]
 				if curr.left: queue.append(curr.left)
 				if curr.right: queue.append(curr.right)
-				
+				minires.append(curr.val)
+			res.append(minires)
+		return res
 
 
 
