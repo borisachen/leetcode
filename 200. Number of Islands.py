@@ -29,3 +29,20 @@ class Solution(object):
 		:type grid: List[List[str]]
 		:rtype: int
 		"""
+		n, m = len(grid), len(grid[0])
+		n_islands = 0
+		for i in range(n):
+			for j in range(m):
+				if grid[i][j] == 1:
+					n_islands += 1
+					self.sink(i, j, grid, n, m)
+		return n_islands
+
+	def sink(i,j,grid, n, m):
+		if i < 0 or j < 0 or i >= n or j >= m:
+			return
+		grid[i][j] = 0
+		self.sink(i-1, j, grid, n, m)
+		self.sink(i+1, j, grid, n, m)
+		self.sink(i, j-1, grid, n, m)
+		self.sink(i, j+1, grid, n, m)

@@ -25,8 +25,6 @@ Return the sum = 12 + 13 = 25.
 
 1. DFS, at each leaf, add to running total sum.
 
-2.
-
 class Solution(object):
 	def sumNumbers(self, root):
 		"""
