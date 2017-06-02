@@ -13,8 +13,12 @@ if n[lo] < n[hi], return lo
 if n[lo] <  n[mid], then look in right half
 if n[mid] < n[hi], then look in left half
 
-7 0 1
+7 0 1x
 l m h -
+
+7 0
+l
+m
 
 class Solution(object):
 	def findMin(self, nums):
@@ -29,7 +33,7 @@ class Solution(object):
 			if nums[lo] < nums[hi]:
 				return nums[lo]
 			mid = (lo+hi)/2
-			if nums[lo] < nums[mid]:
+			if nums[lo] <= nums[mid]:
 				lo = mid + 1
 			else: # nums[lo] > nums[mid]
 				hi = mid
