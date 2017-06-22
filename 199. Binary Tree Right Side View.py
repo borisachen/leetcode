@@ -25,6 +25,70 @@ at the end of each level, add that to res
 if depth == size of res, add it to res
 this works if we recusively call the right first
 
+
+
+
+class Solution(object):
+	def rightSideView(self, root):
+		"""
+		:type root: TreeNode
+		:rtype: List[int]
+		"""
+		if not root: return []
+		queue = [root]
+		res = []
+		while queue:
+			next_level = []
+			for node in queue:
+				if node.left: next_level.append(node.left)
+				if node.right: next_level.append(node.right)
+			if next_level: res.append(next_level[-1])
+			queue = next_level
+		return res
+
+
+
+
+
+
+
+class Solution(object):
+	def rightSideView(self, root):
+		"""
+		:type root: TreeNode
+		:rtype: List[int]
+		"""
+		res = []
+		self.dfs(root, res, 0)
+		return res
+
+
+	def dfs(self, node, res, level):
+		if not node:
+			return
+		if level == len(res):
+			res.append(node.val)
+		self.dfs(node.right, res, level+1)
+		self.dfs(node.left, res, level+1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Solution(object):
 	def rightSideView(self, root):
 		"""

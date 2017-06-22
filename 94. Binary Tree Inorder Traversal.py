@@ -104,3 +104,42 @@ class Solution(object):
 		return
 
 
+
+class Solution(object):
+	def inorderTraversal(self, root):
+		"""
+		:type root: TreeNode
+		:rtype: List[int]
+		"""
+		if not root: return []
+		res = []
+		self.dfs(node, res)
+		return res
+
+	def dfs(self, node, res):
+		if node.left:
+			self.dfs(node.left)
+		res.append(node.val)
+		if node.right
+			self.dfs(node.right)
+		return
+
+
+
+class Solution(object):
+	def inorderTraversal(self, root):
+		"""
+		:type root: TreeNode
+		:rtype: List[int]
+		"""
+		if not root: return []
+		res = []
+		stack = [root]
+		curr = root
+		while stack:
+			while curr.left:
+				stack.append(curr)
+				curr = curr.left
+			cur = stack.pop()
+			res.append(cur.val)
+			cur = cur.right
