@@ -95,7 +95,7 @@ mergesort_inversion([3,2,1])
 
 """
 Basic merge sort:        
-        """        
+ """        
 def mergesort(x):
     if len(x)==0 or len(x)==1:
         return x
