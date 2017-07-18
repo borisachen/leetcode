@@ -24,6 +24,47 @@ class Solution(object):
         lo = 0
         hi = len(nums)-1
         while lo < hi:
+            p = paritition(nums, lo, hi)
+
+    def paritition(self, nums, lo, hi):
+        pivot = nums[hi]
+        i = lo
+        for j in range(lo, hi):
+            if nums[j] < pivot:
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution(object):
+    def findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        lo = 0
+        hi = len(nums)-1
+        while lo < hi:
             p = self.partition(nums, lo, hi)
             if p == k-1: return nums[p]
             if p > k-1: lo = p + 1
