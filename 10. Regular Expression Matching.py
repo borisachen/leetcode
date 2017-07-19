@@ -45,4 +45,7 @@ class Solution(object):
 				if p[i-1] != '*':
 					table[i][j] = table[i-1][j-1] and (p[i-1]==s[i-1] or p[i-1]=='.')
 				else:
-					table[i][j] =
+					table[i][j] = table[i-2][j] or table[i-1][j]
+					if p[i-2] == s[j-1] or p[i-2] == '.':
+						table[i][j] |= table[i][j-1]
+		return table[-1][-1]
