@@ -25,3 +25,21 @@ class Solution(object):
 			maxpre = maxhere
 			minpre = minhere
 		return maxsofar
+
+
+class Solution(object):
+	def maxProduct(self, nums):
+		"""
+		:type nums: List[int]
+		:rtype: int
+		"""
+		n = len(nums)
+		f = nums[0]
+		g = nums[0]
+		res = nums[0]
+		for i in range(1, n):
+			f, g = max(f*nums[i], g*nums[i], nums[i]), min(f*nums[i], g*nums[i], nums[i])
+			res = max(res, f)
+		return res
+
+Solution().maxProduct([2,3,-2,4])
