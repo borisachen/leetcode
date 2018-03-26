@@ -23,7 +23,7 @@ The sum of elements in the given array will not exceed 1000.
 Your output answer is guaranteed to be fitted in a 32-bit integer.
 
 """
-naive:
+dp[i][j] = whether the specific sum j can be gotten from the first i numbers
 """
 
 class Solution(object):
@@ -52,3 +52,26 @@ class Solution(object):
 
 
 Solution().subsetSum([1, 1, 1, 1, 1], 3)
+
+
+class Solution(object):
+	def findTargetSumWays(self, nums, S):
+		"""
+		:type nums: List[int]
+		:type S: int
+		:rtype: int
+		"""
+		if not nums:
+			return 0
+		# dic stores the numbers of ways to get each sum so far.
+		dic = {nums[0]:1, -nums[0]:1} if nums[0] != 0 else {nums[0]:2}
+		for i in range(1, len(nums)):
+			tdic = {}
+			for d in dic:
+				tdic[d + nums[i]] = tdic.get(d + nums[i], 0) + dic.get(d, 0)
+				tdic[d - nums[i]] = tdic.get(d - nums[i], 0) + dic.get(d, 0)
+			dic = tdic
+		return dic.get(S, 0)
+
+
+
