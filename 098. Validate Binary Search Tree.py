@@ -22,19 +22,21 @@ Binary tree [1,2,3], return false.
 
 
 class Solution(object):
-  def isValidBST(self, root):
-    import sys
-
-
-  def go(self, node, lo, hi): # node.val must be between lo and hi
-    if not node: return True
-    if node.val >= hi
-      return False
-
-
-
-
-
+    def isValidBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        import sys
+        return self.validnode(root, -sys.maxint, sys.maxint)
+    def validnode(self, node, lo, hi):
+        if not node:
+            return True
+        if node.val >= hi or node.val <= lo:
+            return False
+        left = self.validnode(node.left, lo, node.val)
+        right = self.validnode(node.right, node.val, hi)
+        return (left & right)
 
 
 
