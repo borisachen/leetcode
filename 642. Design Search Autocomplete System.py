@@ -55,11 +55,20 @@ Please use double-quote instead of single-quote when you write test cases even f
 Please remember to RESET your class variables declared in class AutocompleteSystem, as static/class variables are persisted across multiple test cases. Please see here for more details.
 
 ------------------------------------
-This seems like a trie problem.
 First go through the dictionary and store the results into a trie.
 Then its jsut a matter of taking each query, and traversing the trie.
-
 In the trie, where should we store the number? at the terminal node.
+
+Complexity:
+Creating the trie: O(n*m) where n is the number of words, m is the length of the longest word
+
+At query time, if n = number of common prefixes with the input string,
+O(n + nlogn) since we have to stort
+
+Instead of sorting at the end, we can use a max heap since we only need the top 3.
+Each heap operation takes log3 time, and we have n insertions to make.
+O(n + nlog3), 
+
 ------------------------------------
 
 searches = {"i love you" : 5,
