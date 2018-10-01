@@ -15,16 +15,13 @@ Example:
 Input: "cbbd"
 
 Output: "bb"
-<<<<<<< HEAD
 
 1. iterate, for each i, consider [i-j,i+j].
 o(n^2)
-=======
  0123
  babad
  l h
 l   h
->>>>>>> 099b20a305ed9701c9f56592c90323dbc5cb4ae2
 
 
 class Solution(object):
@@ -33,10 +30,8 @@ class Solution(object):
 		:type s: str
 		:rtype: str
 		"""
-<<<<<<< HEAD
 		n = len(s)
 		for i in range()
-=======
 		start = 0
 		maxlen = 0
 		n = len(s)
@@ -56,4 +51,3 @@ class Solution(object):
 
 Solution().longestPalindrome("cbbd")
 Solution().longestPalindrome("babad")
->>>>>>> 099b20a305ed9701c9f56592c90323dbc5cb4ae2
