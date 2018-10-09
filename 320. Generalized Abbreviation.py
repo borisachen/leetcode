@@ -8,6 +8,24 @@ Given word = "word", return the following list (order does not matter):
 
 -----------------------------------
 Standard backtracking approach to generate all permutations
+
+approach 2:
+0000 word
+0001 wor1
+0010 wo1d
+0011 wo2
+0100 w1rd
+0101 w1r1
+0110 w2d
+0111 w3
+1000 1ord
+1001 1or1
+1010 1o1d
+1011 1o2
+1100 2rd
+1101 2r1
+1110 3d
+1111 4
 -----------------------------------
 
 import pdb
