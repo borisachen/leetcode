@@ -26,6 +26,10 @@ approach 2:
 1101 2r1
 1110 3d
 1111 4
+
+Time: There are 2^n solutions. For each solution, we need to build the string which requires O(n),
+so time complexity is O(n * 2^n)
+Space: Not counting the output storage, we need temp which is O(n).
 -----------------------------------
 
 import pdb

@@ -63,6 +63,8 @@ We can track each of the n rows and n cols by starting with 0
 then increasing or decreasing by +/-1 for each move.
 If any counter ever gets to +n or -n, then we have a winner
 
+Time: O(n) since we are checking rows O(n) and cols O(n), and 2 diagonals O(1)
+Space: O(n)
 -----------------------------------
 
 class tictactoe(object):
