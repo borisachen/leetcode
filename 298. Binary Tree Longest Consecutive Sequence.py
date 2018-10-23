@@ -22,7 +22,9 @@ Longest consecutive sequence path is 3-4-5, so return 3.
  1
 Longest consecutive sequence path is 2-3,not3-2-1, so return 2.
 -----------------------------------
+Approach 1: Bottom up dfs - compute largest length containing current node, as you go up
 
+Approach 2: Top down dfs - pass the length as you go down
 -----------------------------------
 
 class Node(object):
@@ -63,3 +65,16 @@ head.right.left = Node(2)
 head.right.right = Node(4)
 head.right.right.right = Node(5)
 Solution().wrapper(head)
+
+
+# Top down
+def dfs(node, parent, length):
+  if not node: return length
+  l = 1
+  if parent and node.val == parent.val + 1:
+    l = length + 1
+  res = max(dfs(node.left, node, l), dfs(node.right, node, l))
+  return max(res, l)
+
+dfs(test1, None, 1)
+dfs(head, None, 1)

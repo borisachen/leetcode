@@ -13,7 +13,7 @@ Note:
 1 <= len(A), len(B) <= 1000
 0 <= A[i], B[i] < 100
 
-"""
+---------------------------------
 Naive:
 make all subarrays in A
 check all in B
@@ -23,8 +23,7 @@ dp[ij[j] = longest common substring ending with a[i] and b[j]
 
 transition function
 dp[i][j] = dp[i-1][j-1]+1 if a[i]==b[j] else 0
-
-"""
+---------------------------------
 
 class Solution(object):
 	def findLength(self, A, B):
