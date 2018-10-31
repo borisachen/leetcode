@@ -7,6 +7,9 @@ Given target value is a floating point.
 You are guaranteed to have only one unique value in the BST that is closest to the target.
 
 ---
+Search down the tree and check for best each time.
+If target is smaller than current node, search left. Else search right
+Complexity: if n is the number of nodes, Time: O(logn), Space: O(1)
 ---
 # Recursive approach
 def closest_in_bst(node, target):
