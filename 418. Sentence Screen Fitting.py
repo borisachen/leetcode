@@ -54,7 +54,7 @@ had--
 The character '-' signifies an empty space on the screen.
 
 -------------------------
-Naive:
+Approach 1: Naive
 Try to fill row by row, adding the words one at a time.
 When it no longer fits, move to the next line.
 When we fill the last word, up the counter and restart.
@@ -63,14 +63,34 @@ n = number of words,
 m = avg len of words
 r = rows
 c = columns
-Time: O(r*c/m)
+Time: O(r*c)
 
 Note: - Eventually we will hit a cycle. At that point there is no need to repeat the searching.
 
+Approach 2:
 Rather than interating on the emtpy matrix, we could concat the sentence and move to the c-th
 position, then find earlist word that fits up to slot c. Then we truncate the sentence and 
 repeat.
+Time: O(r*c)
 
+a bcd e a bcd e a bcd e
 ------------------------------
+
+sentence = ["a", "bcd", "e"]
+rows = 3
+cols = 6
+
+concat_sent = ' '.join(sentence)
+n = len(concat_sent)
+start = 0
+for i in range(rows):
+	start = start + cols
+	if concat_sent[start % n] == ' ':
+		start += 1
+	else:
+		while start > 0 and concat_sent[start % n] != ' ':
+			start -= 1
+return start/n
+
 
 
