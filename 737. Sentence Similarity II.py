@@ -32,6 +32,33 @@ words1 = ["great", "acting", "skills"]
 words2 = ["fine", "drama", "talent"]
 pairs = [["great", "good"], ["fine", "good"], ["acting","drama"], ["skills","talent"]]
 
+-----
+
+def areSentencesSimilarTwo(words1, words2, pairs):
+	if len(words1) != len(words2): return False
+	graph = {}
+	for w1, w2 in pairs:
+		if w1 not in graph: graph[w1] = []
+		if w2 not in graph: graph[w2] = []
+		graph[w1].append(w2)
+		graph[w2].append(w1)	
+	for w1, w2 in zip(words1, words2):
+		stack = [w1]
+		seen = {w1}
+		while stack:
+			word = stack.pop()
+			if word == w2: break
+			for nex in graph[word]:
+				if nex not in seen:
+					seen.add(nex)
+					stack.append(nex)
+		else: return False
+	return True
+
+areSentencesSimilarTwo(words1, words2, pairs)
+
+
+-----
 
 def dfs(source, target, visited, d):
 	if target in d[source]:
