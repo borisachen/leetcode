@@ -31,19 +31,19 @@ Whenever nums[i] + nums[lo] + nums[hi] < target:
 all the solutions in between lo and hi work, soo add hi - lo 
 ------------------------
 
-if not nums: return 0
-
-count = 0
-n = len(nums)
-nums = sorted(nums)
-
-for i in range(n-2):
-	lo = i + 1
-	hi = n - 1
-	while lo < hi:
-		if nums[i] + nums[lo] + nums[hi] < target:
-			count += hi - lo
-			lo += 1
-		else:
-			hi -= 1
-	return count
+class Solution(object):
+	def threesumsmaller(self, numbs, target):
+		if not nums: return 0
+		count = 0
+		n = len(nums)
+		nums = sorted(nums)
+		for i in range(n-2):
+			lo = i + 1
+			hi = n - 1
+			while lo < hi:
+				if nums[i] + nums[lo] + nums[hi] < target:
+					count += hi - lo
+					lo += 1
+				else:
+					hi -= 1
+			return count

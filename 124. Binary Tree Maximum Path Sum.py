@@ -26,8 +26,13 @@ class Solution(object):
 		:type root: TreeNode
 		:rtype: int
 		"""
+		maxvalue = -sys.maxint
+		dfs(root)
 
-	def search(self, root):
-		if not root:
+	def dfs(self, node):
+		if not node:
 			return 0
-		left = 
+		left = max(0, dfs(node.left))
+		right = max(0, dfs(node.right))
+		maxvalue = max(maxvalue, left + right + node.val)
+		return max(left, right) + node.val

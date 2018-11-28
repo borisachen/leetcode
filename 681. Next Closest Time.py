@@ -26,6 +26,39 @@ Improvements:
 - For rounding up, not sure there is a systematic way.
 ------------------------------
 
+# Count time forward 
+class Solution(object):
+	def nextClosestTime(self, time):
+		cur = 60 * int(time[:2]) + int(time[3:])
+		allowed = {int(x) for x in time if x != ':'}
+		while True:
+			cur = (cur + 1) % (24 * 60)
+			if all(digit in allowed
+				for block in divmod(cur, 60) 
+				for digit in divmod(block, 10)):
+				return "{:02d}:{:02d}".format(divmod(curr, 60))
+
+# build from allowed digits
+class Solution(object):
+	def nextClosestTime(self, time):
+		ans = start = 60 * int(time[:2]) + int(time[3:])
+		elapsed = 24 * 60
+		allowed = {int(x) for x in time if x != ':'}
+		for h1, h2, m1, m2 in itertools.product(allowed, repeat=4)
+			hours = 10 * h1 + h2
+			mins = 10 * m1 + m2
+			if hours < 24 and mins < 60:
+				cur = 60 * hours + mins
+				cand_elapsed = (cur - start) % (24 * 60)
+				if 0 < cand_elapsed < elapsed:
+					ans = cur
+					elapsed = cand_elapsed
+		return "{:02d}:{:02d}".format(*divmod(ans, 60))
+
+
+
+
+
 S = '19:34'
 
 # First collect all the unique digits
@@ -63,6 +96,9 @@ def distance(query, target):
 
 target = S[0:2] + S[3:5]
 dist_list = [distance(x, target) for x in res]
+
+
+
 
 
 

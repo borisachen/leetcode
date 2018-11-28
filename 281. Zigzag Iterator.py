@@ -44,3 +44,20 @@ class zigzag(object):
 		return ret
 	def hasNext(self):
 		return self.currIdx < len(self.currVec)
+
+# generalize to k: 
+class zigzag(object):
+	def __iter__(self, v1,v2):
+		self.list = []
+		if v1: self.list.append(v1)
+		if v2: self.list.append(v2)
+	def next(self):
+		poll = self.list.pop(0)
+		res = poll.pop(0)
+		if poll:
+			self.list.append(poll)
+		return res
+	def hasNext():
+		return self.list != None
+
+

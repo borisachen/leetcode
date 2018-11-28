@@ -42,11 +42,38 @@ S contains only digits.
 ---------------------------
 Naively we could search every possible combination in a greedy like fashion via backtracking
 
-
+try all adding all permuations of s[idx:i] for i in [idx, n]
+- no leading zero: if s[idx]=='0' and i > 
 ---------------------------
-n = len(S)
-def backtrack(temp, i, S, res)
-	if i == len(S) and temp[0] + temp[1] == temp[2] and temp[0] < temp[1] and temp[1] < temp[2]:
-		res.append(temp)
-	for j in range(i, len(S)):
-		
+
+def split_array_into_fib(s):
+	temp = []
+	backtrack(s, temp, 0)
+	return temp
+
+def backtrack(s, temp, idx):
+	if idx == len(s) and len(temp) >= 3:
+		return True
+	for i in range(idx, len(s)):
+		if s[idx] == '0' and i > idx:
+			break
+		num = int(s[idx:i+1])
+		size = len(temp)
+		if size >= 2 and num > temp[-1] + temp[-2]:
+			break
+		if size <= 1 or num == temp[-1] + temp[-2]:
+			temp.append(int(num))
+			if backtrack(s, temp, i+1): return True
+			temp.pop()
+	return False
+
+split_array_into_fib("123456579")
+split_array_into_fib("11235813")
+split_array_into_fib("112358130")
+split_array_into_fib("1101111")
+
+
+
+
+
+	

@@ -35,3 +35,32 @@ class Solution(object):
 			d[temp].random = d[temp.random]
 			node = node.next
 		return d[head]
+
+
+def copy_random_list(head):
+	iter = head
+	# 1 make copy, interleaved
+	while iter:
+		next = iter.next
+		copy = RandomListNode(iter.val)
+		iter.next = copy
+		copy.next = next
+		iter = next
+	# 2 assign random pointer in copy nodes
+	iter = head
+	while iter:
+		if iter.random:
+			iter.next.random = iter.random.next
+		iter = iter.next.next
+	# 3 restore original list, and extract copy list
+	iter = head
+	pseudohead = RandomListNode(0)
+	copyiter = pseudohead
+	while iter:
+		next = iter.next.next
+		copy = iter.next
+		copyiter.next = copy
+		copyiter = copy
+		iter.next = next
+		iter = next
+	return pseudohead.next
