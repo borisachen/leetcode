@@ -43,7 +43,7 @@ S contains only digits.
 Naively we could search every possible combination in a greedy like fashion via backtracking
 
 try all adding all permuations of s[idx:i] for i in [idx, n]
-- no leading zero: if s[idx]=='0' and i > 
+- no leading zero: if s[idx]=='0' and i >
 ---------------------------
 
 def split_array_into_fib(s):
@@ -71,9 +71,3 @@ split_array_into_fib("123456579")
 split_array_into_fib("11235813")
 split_array_into_fib("112358130")
 split_array_into_fib("1101111")
-
-
-
-
-
-	
