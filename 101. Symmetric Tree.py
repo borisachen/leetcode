@@ -52,17 +52,16 @@ class Solution:
         :rtype: bool
         """
         if not root: return True
-        s = [root]
-        while s:
-            nextlevel = []
-            for item in s:
-                cur = s.pop()
-                if cur:
-                    nextlevel.append(cur.left)
-                    nextlevel.append(cur.right)
-            n = len(nextlevel)/2
-            values = [x.val for x in nextlevel]
-            if values[:n] != values[n:][::-1]:
+        stack = [(root.left, root.right)]
+        while stack:
+            l, r = stack.pop(0)
+            if not l and not r:
+                continue
+            if not l or not r:
                 return False
-            s = nextlevel
+            if l.val == r.val:
+                stack.append((l.left, r.right))
+                stack.append((l.right, r.left))
+            else:
+                return False
         return True
