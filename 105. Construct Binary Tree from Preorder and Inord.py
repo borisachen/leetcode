@@ -84,4 +84,4 @@ public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int
     root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);
     root.right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);
     return root;
-}        
+}

@@ -1,13 +1,7 @@
 67. Add Binary
 Easy
+754/153
 
-754
-
-153
-
-Favorite
-
-Share
 Given two binary strings, return their sum (also a binary string).
 
 The input strings are both non-empty and contains only characters 1 or 0.

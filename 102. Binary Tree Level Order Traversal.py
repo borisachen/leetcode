@@ -21,7 +21,7 @@ queue for BFS
 add root to queue
 init result = []
 while queue is not empty:
-	for each node on the queue, 
+	for each node on the queue,
 		pop,  add left, add right
 		add popped to a list
 	append list to result
@@ -56,11 +56,3 @@ class Solution(object):
 				minires.append(curr.val)
 			res.append(minires)
 		return res
-
-
-
-
-
-
-
-
