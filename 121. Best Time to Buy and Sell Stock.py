@@ -1,4 +1,4 @@
-121. Best Time to Buy and Sell Stock 
+121. Best Time to Buy and Sell Stock
 
 Say you have an array for which the ith element is the price of a given stock on day i.
 
@@ -16,8 +16,8 @@ Output: 0
 In this case, no transaction is done, i.e. max profit = 0.
 
 1. dp
-keep track of smallestseen 
-loop through, at each step, check prices[i] - smallestseen 
+keep track of smallestseen
+loop through, at each step, check prices[i] - smallestseen
 
 class Solution(object):
 	def maxProfit(self, prices):
@@ -32,3 +32,18 @@ class Solution(object):
 			if prices[i] < smallestseen: smallestseen = prices[i]
 			dp[i] = max(dp[i-1], prices[i] - smallestseen)
 		return dp[-1]
+
+class Solution:
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if not prices: return 0
+        low = prices[0]
+        res = 0
+        for i in range(len(prices)):
+            if prices[i] < low:
+                low = prices[i]
+            res = max(res, prices[i] - low)
+        return res

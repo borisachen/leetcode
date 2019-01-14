@@ -22,6 +22,13 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
 the array is sorted, so the middle element should be the root.
 left half goes to left node, right half goes to right node
 
+Approach 1: Slicing. We can slice the array but slicing takes O(s).
+Time O(nlogn)
+Space O(n)
+
+Approach 2: pass index
+time O(n) since indexing is o(1) so reducings to creating n nodes
+space O(logn) for depth of tree
 -----
 # Definition for a binary tree node.
 # class TreeNode:
