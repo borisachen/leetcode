@@ -23,8 +23,8 @@ the array is sorted, so the middle element should be the root.
 left half goes to left node, right half goes to right node
 
 Approach 1: Slicing. We can slice the array but slicing takes O(s).
-Time O(nlogn)
-Space O(n)
+Time O(nlogn) - each level we are slicing all 1:n, and there are log n levels
+Space O(n) - at the deepest part, we have n/2 + n/4 + n/8 ... in the stack.
 
 Approach 2: pass index
 time O(n) since indexing is o(1) so reducings to creating n nodes
