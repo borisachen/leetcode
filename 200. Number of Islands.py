@@ -1,7 +1,8 @@
-200. Number of Islands 
+200. Number of Islands
+Medium/1941/77
 
-Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
-An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. 
+Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
 You may assume all four edges of the grid are all surrounded by water.
 
 Example 1:
@@ -20,9 +21,12 @@ Example 2:
 00011
 Answer: 3
 
+-----
 1. DFS.
 when we find a 1, increment counter and DFS flip them to 0.
-
+note: in SINK, we have to check the bad cases that we quit/return under.
+	if we dont, then well just sink the entire board.
+-----
 class Solution(object):
 	def numIslands(self, grid):
 		"""
