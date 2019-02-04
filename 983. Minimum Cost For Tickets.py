@@ -1,5 +1,5 @@
 983. Minimum Cost For Tickets
-Medium/98/1
+Medium/110/1
 
 In a country popular for train travel, you have planned some train travelling one year in advance.  The days of the year that you will travel is given as an array days.  Each day is an integer from 1 to 365.
 
@@ -46,8 +46,9 @@ Apporach 2: DP
 dp[i] = min(dp[i-1] + cost[0],
             dp[i-7] + cost[1],
             dp[i-30] + cost[2])
-            
+
 -----
+
 class Solution(object):
     def mincostTickets(self, days, costs):
         """
@@ -55,19 +56,16 @@ class Solution(object):
         :type costs: List[int]
         :rtype: int
         """
-        res = float('-inf')
-        # path = [(start_day, pass), ...]
-        self.backtrack([], 0, days, costs, res)
-        return res
-
-    def backtrack(self, path, day, index, days, costs, res):
-        if day > max(days):
-            if sum(path) < res:
-                res = sum(path)
+        self.res = float('inf')
+        self.backtrack([], 0, days, costs, 0)
+        return self.res
+    def backtrack(self, path, i, days, costs, cost):
+        if i >= len(days):
+            if cost < self.res:
+                self.res = cost
             return
-        # move d up to the next required day to cover
-        for pass in (1,7,30):
-
-
-class Solution(object):
-    def mincostTickets(self, days, costs):
+        for e, d in enumerate((1,7,30)):
+            nexti = i
+            while nexti < len(days) and days[nexti] <= days[i] + d - 1:
+                nexti += 1
+            self.backtrack(path+[d], nexti, days,costs,cost+costs[e])
