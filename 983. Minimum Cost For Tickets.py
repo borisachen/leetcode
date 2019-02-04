@@ -41,6 +41,12 @@ costs.length == 3
 1 <= costs[i] <= 1000
 -----
 Approach 1: DFS/backtracking
+
+Apporach 2: DP
+dp[i] = min(dp[i-1] + cost[0],
+            dp[i-7] + cost[1],
+            dp[i-30] + cost[2])
+            
 -----
 class Solution(object):
     def mincostTickets(self, days, costs):
@@ -61,3 +67,7 @@ class Solution(object):
             return
         # move d up to the next required day to cover
         for pass in (1,7,30):
+
+
+class Solution(object):
+    def mincostTickets(self, days, costs):
