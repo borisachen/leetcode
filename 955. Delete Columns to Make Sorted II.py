@@ -41,7 +41,11 @@ Note:
 
 1 <= A.length <= 100
 1 <= A[i].length <= 100
+'''
+Trick is to keep a current set of words that are still unsorted
+whenever we have a strict inequality, we can remove that words.
 
+'''
 class Solution(object):
     def minDeletionSize(self, A):
         """

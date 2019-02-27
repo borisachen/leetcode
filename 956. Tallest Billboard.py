@@ -1,13 +1,6 @@
 956. Tallest Billboard
-Hard
+Hard/119/6
 
-119
-
-6
-
-Favorite
-
-Share
 You are installing a billboard and want it to have the largest height.  The billboard will have two steel supports, one on each side.  Each steel support must be an equal height.
 
 You have a collection of rods which can be welded together.  For example, if you have rods of lengths 1, 2, and 3, you can weld them together to make a support of length 6.
@@ -39,7 +32,13 @@ Note:
 1 <= rods[i] <= 1000
 The sum of rods is at most 5000.
 
+'''
+Similar to 0/1 knapsack problem
+For each element, pick it, or don't 3 ways - multiply by -1, 0, 1
+and see if the subset sum and reach 0
 
+In this case we dp[i] = whether or not we can hit i-5000.
+'''
 class Solution(object):
     def tallestBillboard(self, rods):
         """

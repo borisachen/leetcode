@@ -60,13 +60,3 @@ class Solution(object):
                 res += amt_to_add
                 A[i] += amt_to_add
         return res
-
-class Solution(object):
-    def minIncrementForUnique(self, A):
-        """
-        :type A: List[int]
-        :rtype: int
-        """
-        from collections import Counter
-        map = Counter(A)
-        lo, hi = min(map), max(map)

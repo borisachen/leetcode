@@ -19,6 +19,7 @@ Note:
 A.length <= 30000
 0 <= S <= A.length
 A[i] is either 0 or 1.
+'''
 -----
 Approach 1: Naively check all O(n^2) subarrays.
 
@@ -30,6 +31,7 @@ presum[j] - presum[i-1] = target, or
 presum[j] - target = presum[i-1]
 
 -----
+'''
 class Solution(object):
     def numSubarraysWithSum(self, A, S):
         """

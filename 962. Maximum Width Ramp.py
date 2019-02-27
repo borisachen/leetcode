@@ -1,18 +1,9 @@
 962. Maximum Width Ramp
-Medium
+Medium/170/7
 
-170
-
-7
-
-Favorite
-
-Share
 Given an array A of integers, a ramp is a tuple (i, j) for which i < j and A[i] <= A[j].  The width of such a ramp is j - i.
 
 Find the maximum width of a ramp in A.  If one doesn't exist, return 0.
-
-
 
 Example 1:
 
@@ -27,7 +18,6 @@ Output: 7
 Explanation:
 The maximum width ramp is achieved at (i, j) = (2, 9): A[2] = 1 and A[9] = 1.
 
-
 Note:
 
 2 <= A.length <= 50000
@@ -38,6 +28,7 @@ first we build a decreasing stack
 this is because if there are two 1's, we don't care about the second one
 since it is always going to result in a smaller width
 e.g. [9,8,1,0]
+
 then we iterate from the right, j--.
 suppose we see a 5. since we want the ramp to be 'increasing',
 we can pop off the 0 and the 1, but 8 doesn't work so we stop there.
