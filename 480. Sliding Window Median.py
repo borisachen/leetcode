@@ -1,8 +1,9 @@
 480. Sliding Window Median
+Hard/331/37
 
 Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.
 
-Examples: 
+Examples:
 [2,3,4] , the median is 3
 
 [2,3], the median is (2 + 3) / 2 = 2.5
@@ -33,12 +34,23 @@ the sorted list tell us which is the median.
 
 now the question is how to pop from the median list.
 '''
+Array based solution:
+the window is an array maintained in sorted order
+the mid of the array is used to calculate the median
+every iteration, the incoming number is added in sorted order in the array using insert - O(log K) ?
+every iteration, the outgoing number is removed from the array using bisect O(log K) ?
+O(N logK) beats 100%
 
-class Solution(object):
+
+# 132 ms
+class SolutionSortedArrayFast(object):
     def medianSlidingWindow(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: List[float]
-        """
-        
+        win, rv = nums[:k], []
+        win.sort()
+        odd = k%2
+        for i,n in enumerate(nums[k:],k):
+            rv.append((win[k/2]+win[k/2-1])/2. if not odd else win[(k-1)/2]*1.)
+            win.pop(bisect(win, nums[i-k])-1) # <<< bisect is faster than .remove()
+            insort(win, nums[i])
+        rv.append((win[k/2]+win[k/2-1])/2. if not odd else win[(k-1)/2]*1.)
+        return rv

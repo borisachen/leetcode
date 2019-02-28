@@ -1,9 +1,10 @@
 406. Queue Reconstruction by Height
+Medium/1368/158
 
-Suppose you have a random list of people standing in a queue. 
-Each person is described by a pair of integers (h, k), 
-where h is the height of the person and k is the number of people in 
-front of this person who have a height greater than or equal to h. 
+Suppose you have a random list of people standing in a queue.
+Each person is described by a pair of integers (h, k),
+where h is the height of the person and k is the number of people in
+front of this person who have a height greater than or equal to h.
 Write an algorithm to reconstruct the queue.
 
 Note:
@@ -19,11 +20,11 @@ Output:
 [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
 
 """
-Strategy will be to start with the tallest people, 
+Strategy will be to start with the tallest people,
 put them in order by 2nd index.
 The repeat for 2nd tallest group, etc.
-This works because as we iterate, it is clear where to place each person 
-from the next lower height group, since we know how many taller 
+This works because as we iterate, it is clear where to place each person
+from the next lower height group, since we know how many taller
 people are before him.
 
 We'll use:

@@ -1,6 +1,5 @@
 642. Design Search Autocomplete System
-Question
- Solution
+Hard
 
 Design a search autocomplete system for a search engine. Users may input a sentence (at least one word and end with a special character '#'). For each character they type except '#', you need to return the top 3 historical hot sentences that have prefix the same as the part of sentence already typed. Here are the specific rules:
 
@@ -20,33 +19,33 @@ List<String> input(char c): The input c is the next character typed by the user.
 
 
 Example:
-Operation: AutocompleteSystem(["i love you", "island","ironman", "i love leetcode"], [5,3,2,2]) 
-The system have already tracked down the following sentences and their corresponding times: 
-"i love you" : 5 times 
-"island" : 3 times 
-"ironman" : 2 times 
-"i love leetcode" : 2 times 
-Now, the user begins another search: 
+Operation: AutocompleteSystem(["i love you", "island","ironman", "i love leetcode"], [5,3,2,2])
+The system have already tracked down the following sentences and their corresponding times:
+"i love you" : 5 times
+"island" : 3 times
+"ironman" : 2 times
+"i love leetcode" : 2 times
+Now, the user begins another search:
 
-Operation: input('i') 
-Output: ["i love you", "island","i love leetcode"] 
-Explanation: 
-There are four sentences that have prefix "i". Among them, "ironman" and "i love leetcode" have same hot degree. Since ' ' has ASCII code 32 and 'r' has ASCII code 114, "i love leetcode" should be in front of "ironman". Also we only need to output top 3 hot sentences, so "ironman" will be ignored. 
+Operation: input('i')
+Output: ["i love you", "island","i love leetcode"]
+Explanation:
+There are four sentences that have prefix "i". Among them, "ironman" and "i love leetcode" have same hot degree. Since ' ' has ASCII code 32 and 'r' has ASCII code 114, "i love leetcode" should be in front of "ironman". Also we only need to output top 3 hot sentences, so "ironman" will be ignored.
 
-Operation: input(' ') 
-Output: ["i love you","i love leetcode"] 
-Explanation: 
-There are only two sentences that have prefix "i ". 
+Operation: input(' ')
+Output: ["i love you","i love leetcode"]
+Explanation:
+There are only two sentences that have prefix "i ".
 
-Operation: input('a') 
-Output: [] 
-Explanation: 
-There are no sentences that have prefix "i a". 
+Operation: input('a')
+Output: []
+Explanation:
+There are no sentences that have prefix "i a".
 
-Operation: input('#') 
-Output: [] 
-Explanation: 
-The user finished the input, the sentence "i a" should be saved as a historical sentence in system. And the following input will be counted as a new search. 
+Operation: input('#')
+Output: []
+Explanation:
+The user finished the input, the sentence "i a" should be saved as a historical sentence in system. And the following input will be counted as a new search.
 
 Note:
 The input sentence will always start with a letter and end with #, and only one blank space will exist between two words.
@@ -67,7 +66,7 @@ O(n + nlogn) since we have to stort
 
 Instead of sorting at the end, we can use a max heap since we only need the top 3.
 Each heap operation takes log3 time, and we have n insertions to make.
-O(n + nlog3), 
+O(n + nlog3),
 
 ------------------------------------
 
@@ -117,11 +116,3 @@ autocomplete(searches, query='i love')
 
 
 x = autocomplete(searches, query='foo')
-
-
-
-
-
-
-
-

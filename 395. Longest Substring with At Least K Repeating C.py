@@ -1,6 +1,6 @@
 395. Longest Substring with At Least K Repeating Characters
-DescriptionHintsSubmissionsDiscussSolution
-Discuss Pick One
+Medium/621/52
+
 Find the length of the longest substring T of a given string (consists of lowercase letters only) such that every character in T appears no less than k times.
 
 Example 1:

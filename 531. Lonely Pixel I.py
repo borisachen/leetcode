@@ -19,10 +19,10 @@ Explanation: All the three 'B's are black lonely pixels.
 Note:
 The range of width and height of the input 2D array is [1,500].
 
------
+------------------------------
 Scan once, count the number of B's in each row and columns
 On the second scan, check if grid[i][j] == B and row[i] == 1 and col[j] == 1.
------
+------------------------------
 
 def lonelypixeli(grid):
     if not grid: return 0

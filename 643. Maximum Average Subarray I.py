@@ -1,7 +1,9 @@
 643. Maximum Average Subarray I
+Easy/422/80
 
-Given an array consisting of n integers, 
-find the contiguous subarray of given length k that has the maximum average value. 
+
+Given an array consisting of n integers,
+find the contiguous subarray of given length k that has the maximum average value.
 And you need to output the maximum average value.
 
 Example 1:
@@ -13,8 +15,12 @@ Note:
 Elements of the given array will be in the range [-10,000, 10,000].
 
 -----
+'''
+Since we have a fixed window, we can run
 two pointers, k distance apart.
-running sum
+and keep track of running sum within the window.
+highest average = largest sum since k is fixed.
+'''
 -----
 
 
@@ -37,5 +43,3 @@ def maxavgsub(x, k):
 
 
 maxavgsub(x=[1,12,-5,-6,50,3], k = 4)
-
-

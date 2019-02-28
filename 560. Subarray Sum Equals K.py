@@ -1,6 +1,7 @@
 560. Subarray Sum Equals K
-
-Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+Medium/1602/40
+Given an array of integers and an integer k, you need to find the total number
+of continuous subarrays whose sum equals to k.
 
 Example 1:
 Input:nums = [1,1,1], k = 2
@@ -57,5 +58,3 @@ class Solution(object):
         return res
 
 Solution().subarraySum([1,1,1], 2)
-
-

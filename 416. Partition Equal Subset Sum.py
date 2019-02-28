@@ -1,6 +1,8 @@
 416. Partition Equal Subset Sum
+Medium/1023/28
 
-Given a non-empty array containing only positive integers, find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
+Given a non-empty array containing only positive integers, find if the array can
+be partitioned into two subsets such that the sum of elements in both subsets is equal.
 
 Note:
 Each of the array element will not exceed 100.
@@ -19,7 +21,7 @@ Input: [1, 2, 3, 5]
 Output: false
 
 Explanation: The array cannot be partitioned into equal sum subsets.
-
+---------------------------
 """
 Rephrase the problem to:
 select a subset of elements s.t. the sum of the subset is equal to half the total sum.
@@ -36,6 +38,8 @@ Therefore the transition function is:
 	dp[i][j] = dp[i-1][j] or dp[i-1][j-nums[i]]
 
 """
+---------------------------
+
 class Solution(object):
     def canPartition(self, nums):
         """

@@ -1,4 +1,5 @@
 647. Palindromic Substrings
+Medium/1183/62
 
 Given a string, your task is to count how many palindromic substrings in this string.
 
@@ -15,6 +16,13 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 Note:
 The input string length wont exceed 1000.
 
+'''
+easier with a helper functions that takes in a left and right index and tries to
+extend as along as possible.
+
+then we iterate through the string, and start two searches per index
+one for odd, one for even number of characters.
+'''
 
 class Solution(object):
 	def countSubstrings(self, s):

@@ -1,13 +1,14 @@
 540. Single Element in a Sorted Array
+Medium/643/55
 
-Given a sorted array consisting of only integers where every element appears twice 
+Given a sorted array consisting of only integers where every element appears twice
 except for one element which appears once. Find this single element that appears only once.
 
 Example 1:
-		0 1 2 3 4 5 6 7 8 
+		0 1 2 3 4 5 6 7 8
 Input: [1,1,2,3,3,4,4,8,8]
                 m
-		0 1 2 3 4 5 6 7 8 
+		0 1 2 3 4 5 6 7 8
        [1,1,3,3,4,4,7,8,8]
 Output: 2
 Example 2:
@@ -16,6 +17,12 @@ Output: 10
 Note: Your solution should run in O(log n) time and O(1) space.
 
 mid = len/2
+--------------
+
+Use binary search.
+lo and hi are not regular index, but the pair index here.
+Basically you want to find the first even-index number not followed by the same number.
+---------------
 
 class Solution(object):
 	def singleNonDuplicate(self, nums):
@@ -35,4 +42,3 @@ class Solution(object):
 
 Solution().singleNonDuplicate([1,1,2,3,3,4,4,8,8])
 Solution().singleNonDuplicate([3,3,7,7,10,11,11])
-

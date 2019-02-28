@@ -1,5 +1,5 @@
 556. Next Greater Element III
-
+Medium/317/96
 
 Given a positive 32-bit integer n, you need to find the smallest 32-bit integer which has exactly the same digits existing in the integer n and is greater in value than n. If no such positive 32-bit integer exists, you need to return -1.
 
@@ -34,4 +34,3 @@ II) Now search the right side of above found digit ‘d’ for the smallest digi
 III) Swap the above found two digits, we get 536974 in above example.
 
 IV) Now sort all digits from position next to ‘d’ to the end of number. The number that we get after sorting is the output. For above example, we sort digits in bold 536974. We get “536479” which is the next greater number for input 534976.
-

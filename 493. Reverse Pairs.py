@@ -1,4 +1,5 @@
 493. Reverse Pairs
+Hard/445/65
 
 Given an array nums, we call (i, j) an important reverse pair if i < j and nums[i] > 2*nums[j].
 
@@ -32,7 +33,7 @@ class Solution(object):
 		left, left_count = self.mergeSort(x[:mid])
 		right, right_count = self.mergeSort(x[mid:])
 		y, ans = self.myMerge(left, right)
-		return y, ans + left_count +right_count
+		return y, ans + left_count + right_count
 	def myMerge(self, a, b):
 		ans = 0
 		mergedlist = []
@@ -46,7 +47,7 @@ class Solution(object):
 					if item > b[0]*2.0:
 						ans += 1
 				b = b[1:]
-		if a: 
+		if a:
 			for item in a:
 				mergedlist.append(item)
 		elif b:
@@ -75,7 +76,7 @@ class Solution(object):
         	i = lo
         	j = mid+1
         	while i <= mid:
-        		while j <= hi and nums[i]/2.0 > nums[j]: 
+        		while j <= hi and nums[i]/2.0 > nums[j]:
         			j+=1
         		count += j-mid-1
         		i += 1
