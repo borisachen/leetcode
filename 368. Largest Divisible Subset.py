@@ -1,6 +1,7 @@
 368. Largest Divisible Subset
+Medium/476/22
 
-Given a set of distinct positive integers, 
+Given a set of distinct positive integers,
 find the largest subset such that every pair (Si, Sj) of elements
  in this subset satisfies: Si % Sj = 0 or Sj % Si = 0.
 
@@ -17,11 +18,14 @@ nums: [1,2,4,8]
 
 Result: [1,2,4,8]
 
-
+---------------
+'''
 1. dp
 S[i] = largest subset with i as largest element
 key (i) is the largest int of the set.
 for each new int x, only need to check if x%d==0,
+'''
+---------------
 
 class Solution(object):
 	def largestDivisibleSubset(self, nums):
