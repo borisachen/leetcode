@@ -31,6 +31,7 @@ Note:
 
 The number of nodes in the given tree will be between 1 and 8500.
 Each node in the tree will have a value between 0 and 25.
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -70,13 +71,13 @@ class Solution(object):
         """
         res = []
         self.dfs(root, str(root.val), res)
-        return self.convert(res[0])
+        return res[0]
 
     def dfs(self, node, temp, res):
         if not node:
             return
         if not node.left and not node.right:
-            res.append(temp)
+            res.append(self.convert(temp))
             if len(res) == 2:
                 res = [res[0]] if res[0] < res[1] else [res[1]]
             return
