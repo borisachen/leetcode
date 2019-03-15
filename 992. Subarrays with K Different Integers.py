@@ -48,11 +48,11 @@ class Solution(object):
                 d[a[j]] = 1
                 m += 1
             while m > k:
-                i += 1
                 d[a[i]] -= 1
                 if d[a[i]] == 0:
                     m -= 1
                     del d[a[i]]
+                i += 1
             res += (j-i+1)
         return res
 
