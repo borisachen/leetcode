@@ -1,4 +1,5 @@
 98. Validate Binary Search Tree
+Medium/1704/259
 
 Given a binary tree, determine if it is a valid binary search tree (BST).
 
@@ -71,11 +72,11 @@ class Solution(object):
       return [], False
     node_is_bst = True
     for left_item in left_list:
-      if not left_item < node.val: 
+      if not left_item < node.val:
         node_is_bst = False
         break
     for right_item in right_list:
-      if not right_item > node.val: 
+      if not right_item > node.val:
         node_is_bst = False
         break
     val_list = left_list + [node.val] + right_list
@@ -98,15 +99,10 @@ public class Solution {
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-    
+
     public boolean isValidBST(TreeNode root, long minVal, long maxVal) {
         if (root == null) return true;
         if (root.val >= maxVal || root.val <= minVal) return false;
         return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
     }
 }
-
-
-
-
-

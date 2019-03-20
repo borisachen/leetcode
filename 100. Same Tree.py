@@ -1,6 +1,5 @@
 100. Same Tree
-Easy
-921/30
+Easy/921/30
 
 Given two binary trees, write a function to check if they are the same or not.
 

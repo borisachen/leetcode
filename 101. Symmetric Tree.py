@@ -1,6 +1,5 @@
 101. Symmetric Tree
-Easy
-1734/36
+Easy/1734/36
 
 Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
 
