@@ -1,13 +1,6 @@
 975. Odd Even Jump
-Hard
+Hard/109/19
 
-109
-
-19
-
-Favorite
-
-Share
 You are given an integer array A.  From some starting index, you can make a series of jumps.  The (1st, 3rd, 5th, ...) jumps in the series are called odd numbered jumps, and the (2nd, 4th, 6th, ...) jumps in the series are called even numbered jumps.
 
 You may from index i jump forward to index j (with i < j) in the following way:

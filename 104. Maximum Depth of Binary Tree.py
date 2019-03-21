@@ -1,6 +1,5 @@
 104. Maximum Depth of Binary Tree
-Easy
-1035/43
+Easy/1035/43
 
 Given a binary tree, find its maximum depth.
 
@@ -28,6 +27,6 @@ class Solution:
 		:type root: TreeNode
 		:rtype: int
 		"""
-		if root == None: 
+		if root == None:
 			return 0
 		return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))

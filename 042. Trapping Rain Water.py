@@ -1,9 +1,10 @@
 42. Trapping Rain Water
+Hard/3113/55
 
 Given n non-negative integers representing an elevation map where the width of each bar is 1, 
 compute how much water it is able to trap after raining.
 
-For example, 
+For example,
 Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
 
 
@@ -13,7 +14,7 @@ if next height is smaller or equal than the peek() value,
 if next height is larger than the peek value(),
 	then its time to add to the pool.  how much?
 	bottom = pop the top off
-	if there are still items on the stack, that means we can add more water, 
+	if there are still items on the stack, that means we can add more water,
 		take the smaller of:
 			height[i]
 			height[top of stack] ... to be the top water level
@@ -71,7 +72,7 @@ class Solution(object):
 		"""
 		if not height: return 0
 		stack = []
-		i = 0 
+		i = 0
 		water = 0
 		while i < len(height):
 			if not stack or height[i] <= height[stack.peek()]:

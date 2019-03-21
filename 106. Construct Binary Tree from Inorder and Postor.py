@@ -16,10 +16,10 @@ postorder implies the last element is the root node
 find that element in inorder, say its position j
 the elements right of j in inorder will belong to the right node
 the elements left of j in inorder will belong to the left node
-if we process the right node first, 
-	
-left node:  
-right node: 
+if we process the right node first,
+
+left node:
+right node:
 
 
 class Solution(object):
