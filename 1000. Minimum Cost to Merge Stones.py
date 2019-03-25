@@ -41,6 +41,11 @@ Note:
 2 <= K <= 30
 1 <= stones[i] <= 100
 
+State
+transition
+init
+answer
+
 
 public int mergeStonesTwo(int[] stones) {
     if (stones == null || stones.length == 0) {

@@ -1,4 +1,5 @@
-300. Longest Increasing Subsequence 
+300. Longest Increasing Subsequence
+Medium/2226/51
 
 Given an unsorted array of integers, find the length of longest increasing subsequence.
 
@@ -14,7 +15,7 @@ Follow up: Could you improve it to O(n log n) time complexity?
 d[0] = 1
 for each i = 0, ..., n
 	iterate j = 0, ..., i
-		if nums[j] < nums[i], then j contributes to i. 
+		if nums[j] < nums[i], then j contributes to i.
 		dp[i] = max(dp[j]+1, dp[i])
 
 time complexity: O(n^2)
@@ -57,6 +58,3 @@ class Solution(object):
 			tails[i] = x
 			size = max(i+1, size)
 		return size
-
-
-

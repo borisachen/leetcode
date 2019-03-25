@@ -1,6 +1,9 @@
 315. Count of Smaller Numbers After Self
+Hard/988/42
 
-You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i].
+You are given an integer array nums and you have to return a new counts array.
+The counts array has the property where counts[i] is the number of smaller
+elements to the right of nums[i].
 
 Example:
 
@@ -13,6 +16,10 @@ To the right of 1 there is 0 smaller element.
 Return the array [2, 1, 1, 0].
 
 idea: divide/conquer with merge sort type solution, count inversions during merge step
+
+The smaller numbers on the right of a number are exactly those that jump from
+its right to its left during a stable sort. So I do mergesort with added
+tracking of those right-to-left jumps.
 
 class Solution(object):
 	def countSmaller(self, nums):
@@ -58,7 +65,7 @@ class Solution(object):
         """
         """
         def mergesort(x):
-            if len(x)==0: 
+            if len(x)==0:
                 return x, []
             if len(x)==1:
                 return x, [0]
@@ -67,7 +74,7 @@ class Solution(object):
             b, B = mergesort(x[mid:])
             y, Y = merge(a, b, A, B)
             return y,Y
-        
+
         def merge(a, b, left, right):
             res = []
             i,j = 0,0
@@ -75,7 +82,7 @@ class Solution(object):
                 if a[i] <= b[j]:
                     res.append(a[i])
                     i += 1
-                else: 
+                else:
                     res.append(b[j])
                     for k in range(i, len(left)):
                         left[k] += 1
@@ -85,7 +92,7 @@ class Solution(object):
             elif j < len(b):
                 res += b[j:]
             return res, left + right
-        
+
         return mergesort(nums)[1]
         """
         def sort(enum):
@@ -102,4 +109,3 @@ class Solution(object):
         smaller = [0] * len(nums)
         sort(list(enumerate(nums)))
         return smaller
-        

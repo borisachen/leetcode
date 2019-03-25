@@ -1,4 +1,5 @@
 286. Walls and Gates
+(locked)
 
 You are given a m x n 2D grid initialized with these three possible values.
 
@@ -19,13 +20,13 @@ After running your function, the 2D grid should be:
   0  -1   3   4
 
 ------------------------------------
-We could find each 0 (starting point), then round robin through them and 
+We could find each 0 (starting point), then round robin through them and
 take one breadth first search step at a time.
 We label each open slot with the depth.
 Since we are doing BFS, the first time we label a point, it is guaranteed to be the smallest number from any starting point.
 Alternatively we could BFS search one 0 at a time, but that is less efficient.
 During the BFS, we ignore points that are -1 (walls) or ones that have already been filled.
-We can use a queue for the gates. 
+We can use a queue for the gates.
 
 Complexity:
 Each space should only be searched once. there are O(n^2) spaces
@@ -48,7 +49,7 @@ def walls_and_gates(grid):
 			if grid[i][j] == 0:
 				queue.append((i,j))
 	while queue:
-		x, y = queue.pop(0) 
+		x, y = queue.pop(0)
 		next_depth = grid[x][y] + 1
 		if y > 0 and grid[x][y-1] == INF:
 			grid[x][y-1] = next_depth

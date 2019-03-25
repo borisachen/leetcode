@@ -1,8 +1,13 @@
 265. Paint House II
 
-There are a row of n houses, each house can be painted with one of the k colors. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.
+There are a row of n houses, each house can be painted with one of the k colors.
+The cost of painting each house with a certain color is different. You have to
+paint all the houses such that no two adjacent houses have the same color.
 
-The cost of painting each house with a certain color is represented by a n x k cost matrix. For example, costs[0][0] is the cost of painting house 0 with color 0; costs[1][2] is the cost of painting house 1 with color 2, and so on... Find the minimum cost to paint all houses.
+The cost of painting each house with a certain color is represented by a n x k
+cost matrix. For example, costs[0][0] is the cost of painting house 0 with
+color 0; costs[1][2] is the cost of painting house 1 with color 2, and so on...
+Find the minimum cost to paint all houses.
 
 Note:
 All costs are positive integers.
@@ -23,15 +28,15 @@ We can reduce the space complexity to O(k) since we only need the previous colum
 
 Approach 2:
 We can further reduce to time O(k*n) by tracking a couple more things
-- global min1, minimum cost so far 
-- global min2, second minimum cost so far, in case the curr color is the same as prev, we take min2 
+- global min1, minimum cost so far
+- global min2, second minimum cost so far, in case the curr color is the same as prev, we take min2
 - currmin1
 - currmin2, best and second best cost including this row
 ------------------------------------------
 
 
 def paint_house_2b(cost):
-	if not cost: 
+	if not cost:
 		return 0
 	n = len(cost)
 	m = len(cost[0])
@@ -39,7 +44,7 @@ def paint_house_2b(cost):
 	min2 = 0
 	lastcolor = -1
 	for i in range(n):
-		currmin1 = sys.maxint 
+		currmin1 = sys.maxint
 		currmin2 = sys.maxint
 		currcolor = -1
 		for j in range(m):

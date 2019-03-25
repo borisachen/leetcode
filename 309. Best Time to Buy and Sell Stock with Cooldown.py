@@ -1,11 +1,14 @@
-309. Best Time to Buy and Sell Stock with Cooldown 
+309. Best Time to Buy and Sell Stock with Cooldown
+Medium/1173/42
 
 Say you have an array for which the ith element is the price of a given stock on day i.
 
-Design an algorithm to find the maximum profit. 
-You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:
+Design an algorithm to find the maximum profit.
+You may complete as many transactions as you like (ie, buy one and sell one
+share of the stock multiple times) with the following restrictions:
 
-You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+You may not engage in multiple transactions at the same time (ie, you must
+sell the stock before you buy again).
 After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)
 Example:
 
@@ -22,8 +25,8 @@ rest[i]
 
 now define transition functions:
 
-buy[i]  = max(rest[i-1] - price, buy[i-1]) # buy 
-sell[i] = max(buy[i-1] + price, sell[i-1]) # buy on i-1, sell today, profit = +price; sell i-1, do nothing today 
+buy[i]  = max(rest[i-1] - price, buy[i-1]) # buy
+sell[i] = max(buy[i-1] + price, sell[i-1]) # buy on i-1, sell today, profit = +price; sell i-1, do nothing today
 rest[i] = max(sell[i-1], buy[i-1], rest[i-1])
 
 note 1: buy[i] <= res[i].
@@ -33,7 +36,7 @@ note 2: rest[i] <= sell[i]
 thus, rest[i] = sell[i-1]
 
 substitute to get:
-buy[i]  = max(sell[i-2] - price, buy[i-1]) 
+buy[i]  = max(sell[i-2] - price, buy[i-1])
 sell[i] = max(buy[i-1] + price, sell[i-1])
 
 

@@ -1,8 +1,11 @@
 314. Binary Tree Vertical Order Traversal
+(locked)
 
-Given a binary tree, return the vertical order traversal of its nodes values. (ie, from top to bottom, column by column).
+Given a binary tree, return the vertical order traversal of its nodes values.
+(ie, from top to bottom, column by column).
 
-If two nodes are in the same row and column, the order should be from left to right.
+If two nodes are in the same row and column, the order should be from left to
+right.
 
 Examples:
 
@@ -94,12 +97,3 @@ def dfs(index, xcoord, tree, res):
 vertical_order([3,9,8,4,0,1,7])
 
 vertical_order([3,9,8,4,0,1,7,None,None,None,2,5])
-
-
-
-
-
-
-
-
-

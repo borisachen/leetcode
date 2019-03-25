@@ -1,7 +1,8 @@
 322. Coin Change
+Medium/1486/68
 
-You are given coins of different denominations and a total amount of money amount. 
-Write a function to compute the fewest number of coins that you need to make up that amount. 
+You are given coins of different denominations and a total amount of money amount.
+Write a function to compute the fewest number of coins that you need to make up that amount.
 If that amount of money cannot be made up by any combination of the coins, return -1.
 
 Example 1:
@@ -32,6 +33,15 @@ dp[25-2]+1
 dp[25-5]+1
 take the min of these for dp[i]
 
+def coinChange(coins, amount):
+	MAX = float("inf")
+	dp = [0] + [MAX] * amount
+	for i in range(1, amount + 1):
+		dp[i] = max([dp[i-c] if i-c>=0 else MAX for c in coins])
+	return [dp[-1], -1][dp[-1]==MAX]
+	
+
+
 class Solution(object):
 	def coinChange(self, coins, amount):
 		"""
@@ -48,7 +58,7 @@ class Solution(object):
 				if i - c >= 0:
 					if dp[i-c] == -1: temp.append(1)
 					else: temp.append(dp[i-c]+1)
-			if temp: 
+			if temp:
 				dp[i] = min(temp)
 				if dp[i] == 0: dp[i] = -1
 			else:
@@ -91,9 +101,9 @@ class Solution(object):
 		nc = 0
 		visited = [False] * (amount + 1)
 		visited[0] = True
-		while value1: 
+		while value1:
 			nc += 1 # keeps track of current depth
-			for v in value1: # 0 
+			for v in value1: # 0
 				for coin in coins: # 1 2 5
 					newval = v + coin # 1 2 5
 					if newval == amount: return nc
@@ -103,17 +113,3 @@ class Solution(object):
 						value2.append(newval)
 			value1, value2 = value2, []
 		return -1
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,5 @@
 266. Palindrome Permutation
+Easy (locked)
 
 Given a string, determine if a permutation of the string could form a palindrome.
 

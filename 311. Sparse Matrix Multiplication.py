@@ -1,4 +1,5 @@
 311. Sparse Matrix Multiplication
+(locked)
 
 Given two sparse matrices A and B, return the result of AB.
 
@@ -30,10 +31,10 @@ this is a triple for loop, O(N^3)
 
 Improvements:
 Take advantage of the sparsity.
-When we see a zero, no need to add anything ??? 
+When we see a zero, no need to add anything ???
 when a[i,k]==0, then no need to add b[k,j]
   to condition on this, we need to iterate on i,k. so swap the for loop
-Complxity: sparse --> only 2 for loops 
+Complxity: sparse --> only 2 for loops
 '''
 
 def multiply(a,b):
@@ -75,4 +76,3 @@ B = [
   [ 0, 0, 1 ]
 ]
 multiply(A,B)
-

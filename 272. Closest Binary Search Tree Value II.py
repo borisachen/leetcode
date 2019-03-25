@@ -1,17 +1,21 @@
 272. Closest Binary Search Tree Value II
+Hard (locked)
 
-Given a non-empty binary search tree and a target value, find k values in the BST that are closest to the target.
+Given a non-empty binary search tree and a target value, find k values in the
+BST that are closest to the target.
 
 Note:
 Given target value is a floating point.
 You may assume k is always valid, that is: k ≤ total nodes.
-You are guaranteed to have only one unique set of k values in the BST that are closest to the target.
+You are guaranteed to have only one unique set of k values in the BST that are
+closest to the target.
 Follow up:
-Assume that the BST is balanced, could you solve it in less than O(n) runtime (where n = total nodes)?
+Assume that the BST is balanced, could you solve it in less than O(n) runtime
+(where n = total nodes)?
 
 -----
 Approach 1:
-Iterate through all n nodes. Use MaxHeap of size K. 
+Iterate through all n nodes. Use MaxHeap of size K.
 O(nlogk)
 
 Approach 2:
@@ -54,7 +58,7 @@ def find_closest_one(node, target):
 		if temp.left and target < temp.val:
 			prev = temp
 			temp = temp.left
-		else: 
+		else:
 			prev = temp
 			temp = temp.right
 	return best_val, best_node, parent
@@ -71,7 +75,7 @@ find_closest_one(head, 0.7)
 
 def remove(head, node, parent):
 	if node.left == None and node.right == None:
-		
+
 	# to remove a node, find the smallest node in the right subtree, and swap it with root.
 	# in a BST, the smalles node is guaranteed to be the left most
 	prev = None
@@ -81,7 +85,3 @@ def remove(head, node, parent):
 	# curr.left is None, so we swap values
 	node.val = curr.val
 	pass
-
-
-
-

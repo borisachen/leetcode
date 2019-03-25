@@ -1,4 +1,5 @@
 281. Zigzag Iterator
+Medium (locked)
 
 Given two 1d vectors, implement an iterator to return their elements alternately.
 
@@ -45,7 +46,7 @@ class zigzag(object):
 	def hasNext(self):
 		return self.currIdx < len(self.currVec)
 
-# generalize to k: 
+# generalize to k:
 class zigzag(object):
 	def __iter__(self, v1,v2):
 		self.list = []
@@ -59,5 +60,3 @@ class zigzag(object):
 		return res
 	def hasNext():
 		return self.list != None
-
-
