@@ -13,10 +13,10 @@ Given encoded message "12", it could be decoded as "AB" (1 2) or "L" (12).
 
 The number of ways decoding "12" is 2.
 
-I used a dp array of size n + 1 to save subproblem solutions. 
-dp[0] means an empty string will have one way to decode, 
-dp[1] means the way to decode a string of size 1. 
-I then check one digit and two digit combination and save the results along the way. 
+I used a dp array of size n + 1 to save subproblem solutions.
+dp[0] means an empty string will have one way to decode,
+dp[1] means the way to decode a string of size 1.
+I then check one digit and two digit combination and save the results along the way.
 In the end, dp[n] will be the end result.
 dp[0] = 1
 dp[1] = 1
@@ -51,4 +51,3 @@ class Solution(object):
 			if s[i-2:i] >= '10' and s[i-2:i] <= '26':
 				dp[i] += dp[i-2]
 		return dp[len(s)]
-

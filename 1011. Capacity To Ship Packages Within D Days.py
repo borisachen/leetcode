@@ -1,5 +1,5 @@
-1014. Capacity To Ship Packages Within D Days
-Medium/116/6
+1011. Capacity To Ship Packages Within D Days
+Medium/245/9
 
 A conveyor belt has packages that must be shipped from one port to another
 within D days.
@@ -46,9 +46,14 @@ Note:
 1 <= weights[i] <= 500
 
 '''
-Brute force : try all asignments.
-d=2 ==> O(n)
-d=3 ==> O(n^2)
+Brute force : try all asignments from
+W=max(weights) (each gets its own buckets) to
+W=sum(weights) (everything in 1 bucket)
+buckets=1 - trivial
+buckets=2 ==> O(n)
+buckets=3 ==> O(n^2)
+...
+keep track of the smallest weight bucket we encountered.
 so in general this is O(n^d)
 
 Notice:
@@ -58,7 +63,9 @@ We can evaluate whether a single guess of W is possible in O(n) by doing
 a greedy one pass search -- fill buckets from the left until they are full,
 then add a bucket.
 So do a binary search on possible values.
+This gives a O(log(sum_W - maxW) * n) time algo
 '''
+
 def ship(weights, d):
     l = max(weights) # left
     r = sum(weights) # right
