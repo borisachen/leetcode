@@ -28,3 +28,22 @@ Space: log(n) to check each item.
 11 -> 111, 211, 311... 110, 112, 113,... 101, 111, 121,...
 22 -> 122, 222, 322... 220, 221, 222, 223... 202, 212, 222,...
 '''
+
+def doit(n):
+    if n <= 10: return 0
+    res = set()
+    base = ['11', '22', '33', '44', '55', '66', '77', '88', '99', '00']
+    for b in base:
+        if int(b) < n:
+            backtrack(res, temp)
+
+def backtrack(res, temp, ):
+    if int(temp) <= n:
+        res.add(temp)
+    if int(temp) > n:
+        return
+    for c in '0123456789':
+        backtrack(res, c + temp)
+        for i in range(len(temp)):
+            
+        backtrack(res, temp + c)
