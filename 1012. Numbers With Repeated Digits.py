@@ -32,18 +32,21 @@ Space: log(n) to check each item.
 def doit(n):
     if n <= 10: return 0
     res = set()
-    base = ['11', '22', '33', '44', '55', '66', '77', '88', '99', '00']
+    base = [[str(i), str(i)] for i in range(10)]
     for b in base:
         if int(b) < n:
             backtrack(res, temp)
+    return len(res)
 
-def backtrack(res, temp, ):
+def backtrack(res, temp):
     if int(temp) <= n:
         res.add(temp)
     if int(temp) > n:
         return
     for c in '0123456789':
-        backtrack(res, c + temp)
         for i in range(len(temp)):
-            
-        backtrack(res, temp + c)
+            temp.insert(i, c)
+            backtrack(res, temp)
+            temp.pop(i)
+
+doit(100)
