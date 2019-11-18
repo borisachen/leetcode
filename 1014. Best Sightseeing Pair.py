@@ -20,15 +20,7 @@ Explanation: i = 0, j = 2, A[i] + A[j] + i - j = 8 + 5 + 0 - 2 = 11
 double for loop, store all best so far. O(n^2)
 
 2.
-two pointer?
-with out the distance part, we just look for the two highest values.
 
-store (value, index) and order by value
-8,0
-6,4
-5,2
-2,3
-1,1
 '''
 
 class Solution(object):
