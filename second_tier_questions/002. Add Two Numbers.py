@@ -1,7 +1,8 @@
 2. Add Two Numbers
-
-You are given two non-empty linked lists representing two non-negative integers. 
-The digits are stored in reverse order and each of their nodes contain a single digit. 
+Medium
+6396/1670
+You are given two non-empty linked lists representing two non-negative integers.
+The digits are stored in reverse order and each of their nodes contain a single digit.
 Add the two numbers and return it as a linked list.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
@@ -72,11 +73,11 @@ class Solution(object):
             curr.next = ListNode(sum % 10)
             curr = curr.next
             sum = sum/10
-        
+
         # at the end, if sum is 1, then add a 1 to the master list
         if sum > 0:
             curr.next = ListNode(sum)
-        
+
         return head.next
         """
         i1 = l1
@@ -97,4 +98,3 @@ class Solution(object):
         if carry>0:
             curr.next = ListNode(carry)
         return head.next
-        
