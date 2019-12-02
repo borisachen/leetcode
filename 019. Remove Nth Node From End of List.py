@@ -1,6 +1,5 @@
 19. Remove Nth Node From End of List
-DescriptionHintsSubmissionsDiscussSolution
-Discuss Pick One
+Medium/2344/177
 Given a linked list, remove the nth node from the end of list and return its head.
 
 For example,
@@ -11,15 +10,32 @@ For example,
 Note:
 Given n will always be valid.
 Try to do this in one pass.
-"""
+
+""""
+Naive - on the 1st pass, count how many items, m.
+on the second pass, go the m-nth node and remove it.
+
+Better:
 0
 1->2->3->4->5
-d     c 
+d     c
 two pointers, curr and tail
 iterate curr n spots
 then iterate both until curr hits the end
 
 """
+
+def doit(head, n):
+    curr = head
+    for i in range(n):
+        curr = curr.next
+    tail = head
+    while curr:
+        curr = curr.next
+        tail = tail.next
+    tail.next = tail.next.next
+    return head
+
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):

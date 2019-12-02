@@ -48,6 +48,8 @@ def dfs(temp, i, digits, res):
 		res.append(temp)
 		return
 	letters = dic[digits[i]]
+	for i in len(letters):
+		dfs(temp + letters[i], i+1, digits, res)
 
 def dfs(prefix, digits, offset, res):
 	if offset >= len(digits):
