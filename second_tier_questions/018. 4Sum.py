@@ -1,6 +1,7 @@
 18. 4Sum
-DescriptionHintsSubmissionsDiscussSolution
-Discuss Pick One
+Medium
+1380/270
+
 Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.
 
 Note: The solution set must not contain duplicate quadruplets.
@@ -49,4 +50,4 @@ class Solution(object):
 			for i in range(0, len(nums)-N+1):
 				if i==0 or (i>0 and nums[i-1] != nums[i]):
 					self.findNsum(nums[i+1:], target-nums[i], N-1, result+[nums[i]], results)
-		return 
+		return
