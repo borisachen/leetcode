@@ -1,4 +1,5 @@
 3. Longest Substring Without Repeating Characters
+Medium/8629/522
 
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -39,12 +40,12 @@ class Solution(object):
           i
         pwwkew
           j
-            keep a hashmap which stores the characters in string as keys and their positions as values, 
+            keep a hashmap which stores the characters in string as keys and their positions as values,
             keep two pointers which define the max substring. j, i
             move the right pointer to scan through the string: i
-            and meanwhile update the hashmap. 
-            If the character is already in the hashmap, 
-                then move the left pointer to the right of the same character last found. 
+            and meanwhile update the hashmap.
+            If the character is already in the hashmap,
+                then move the left pointer to the right of the same character last found.
             Note that the two pointers can only move forward.
         """
         if len(s)==0:
@@ -58,4 +59,3 @@ class Solution(object):
             d[s[i]] = i
             maxx = max(maxx, i-j+1)
         return maxx
-        
