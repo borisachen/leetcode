@@ -19,8 +19,11 @@ Explanation: i = 0, j = 2, A[i] + A[j] + i - j = 8 + 5 + 0 - 2 = 11
 1. Naive:
 double for loop, store all best so far. O(n^2)
 
-2.
-
+2. DP
+we want the maximum value of a[i]+i+a[j]-j for i < j.
+so we need to keep the previous best index which can make the max a[i]+i
+time o(n)
+space o(1)
 '''
 
 class Solution(object):
@@ -29,3 +32,10 @@ class Solution(object):
         :type A: List[int]
         :rtype: int
         """
+        ans = A[0]
+        prevBestIdx = 0
+        for j in range(1, len(A)):
+            ans = max(ans, A[prevBestIdx] + prevBestIdx + A[j] - j)
+            if A[prevBestIdx] + prevBestIdx < A[j] + j:
+                prevBestIdx = j
+        return ans
