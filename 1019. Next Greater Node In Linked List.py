@@ -93,3 +93,16 @@ class Solution:
             curr = curr.next
             i += 1
         return res
+
+# Concise version
+
+def nextLargerNodes(self, head):
+    res = []
+    stack = []
+    while head:
+        while stack and head.val > stack[-1][1]:
+            res[stack.pop()[0]] = head.val
+        stack.append([len(res), head.val])
+        res.append(0)
+        head = head.next
+    return res
