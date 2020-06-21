@@ -46,3 +46,22 @@ class Solution:
             temp = temp[:-1]
         dfs(root, temp)
         return sum([int(x, 2) for x in res])
+
+"""
+2. iterative stack
+"""
+
+class Solution:
+    def sumRootToLeaf(self, root: TreeNode) -> int:
+        s = [(root, "")]
+        res = 0
+        while s:
+            curr, path = s.pop(0)
+            if curr.left:
+                s.append((curr.left, path + str(curr.val)))
+            if curr.right:
+                s.append((curr.right, path + str(curr.val)))
+            if not curr.left and not curr.right:
+                path += str(curr.val)
+                res += int(path, 2)
+        return res
