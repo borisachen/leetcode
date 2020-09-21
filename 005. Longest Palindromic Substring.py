@@ -52,3 +52,18 @@ class Solution(object):
 
 Solution().longestPalindrome("cbbd")
 Solution().longestPalindrome("babad")
+
+
+class Soludtion(object):
+	def longestPalindrome(self, s):
+		"""
+		:type s: str
+		:rtype: str
+		"""
+		n = len(s)
+		start = 0
+		maxlen = 0
+		n = len(s)
+		for i in range(n):
+			self.extend(s, i, i, start, maxlen)
+			self.extend(s, i - 1, i, start, maxlen)

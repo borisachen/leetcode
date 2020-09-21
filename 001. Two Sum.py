@@ -12,7 +12,7 @@ Given nums = [2, 7, 11, 15], target = 9,
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
-"""
+
 """
 Naive:
 Search all possible pairs, O(n^2)
@@ -34,6 +34,16 @@ class Solution(object):
         """
         d = {}
         for i,x in enumerate(nums):
+            if x in d:
+                return [d[x], i]
+            else:
+                d[target - x] = i
+
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        d = {}
+        for i, x in enumerate(nums):
             if x in d:
                 return [d[x], i]
             else:

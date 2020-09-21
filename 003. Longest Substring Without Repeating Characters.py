@@ -15,7 +15,7 @@ Given "bbbbb", the answer is "b", with the length of 1.
 
 Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
-""""""
+"""]]]
 Rolling window .
 
 keep a hashmap which stores the characters in string as keys and their positions as values,
@@ -56,7 +56,6 @@ class Solution(object):
           i
         pwwkew
           j
-<<<<<<< HEAD
             keep a hashmap which stores the characters in string as keys and their positions as values,
             keep two pointers which define the max substring. j, i
             move the right pointer to scan through the string: i
@@ -64,9 +63,6 @@ class Solution(object):
             If the character is already in the hashmap,
                 then move the left pointer to the right of the same character last found.
             Note that the two pointers can only move forward.
-=======
-
->>>>>>> 58ee1fb8f704abd4334680bea0009785ad68ddfd
         """
         if len(s)==0:
             return 0
@@ -78,4 +74,18 @@ class Solution(object):
                 j = max(j, d[s[i]]+1)
             d[s[i]] = i
             maxx = max(maxx, i-j+1)
+        return maxx
+
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        if len(s == 0): 
+            return 0
+        d = {}
+        maxx = 0
+        j = 0
+        for i in range(0, len(s)):
+            if s[i] in d:
+                j = max(j, d[s[i]] + 1):
+            d[s[i]] = i
+            maxx = max(maxx, i - j + 1)
         return maxx
