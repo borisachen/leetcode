@@ -9,7 +9,7 @@ Return the sum of the three integers. You may assume that each input would have 
 
     The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 
-""""""
+""" 
 sort
 for loop to fix one pointer
 bi-directional sweep
@@ -37,4 +37,21 @@ class Solution(object):
 					j += 1
 				if s > target:
 					k -= 1
+		return result
+
+class Solution(object):
+	def threeSumClosest(self, nums, target):
+		nums.sort()
+		results = nums[0] + nums[1] + nums[2]
+		for i in range(len(nums)-2):
+			j = i+1
+			k = len(nums)-1
+			while j < k:
+				s = nums[i] + nums[j] + nums[k]
+				if s == target:
+					return s
+				if abs(s-target) < abs(result-target):
+					result = s 
+				if s < target: j += 1
+				if s > target: k -= 1
 		return result
