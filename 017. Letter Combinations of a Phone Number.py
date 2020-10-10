@@ -11,7 +11,7 @@ Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
 Note:
 Although the above answer is in lexicographical order, your answer could be in any order you want.
 
-""""""
+"""
 use an array to store the mappings
 iteratively loop through each char
 """
@@ -22,6 +22,22 @@ class Solution(object):
 		:type digits: str
 		:rtype: List[str]
 		"""
+		res = []
+		dic = ["0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
+		for i, d in enumerate(digits):
+			if not res:
+				for char in dic[int(d)]:
+					res.append(char)
+			else:
+				nextlevel = []
+				for char in dic[int(d)]:
+					for item in res:
+						nextlevel.append(str(item) + str(char))
+				res = nextlevel
+		return res
+
+class Solution(object):
+	def letterCombinations(self, digits):
 		res = []
 		dic = ["0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
 		for i, d in enumerate(digits):
@@ -51,6 +67,15 @@ def dfs(temp, i, digits, res):
 	for i in len(letters):
 		dfs(temp + letters[i], i+1, digits, res)
 
+def dfs(temp, i, digits, res):
+	if i >= len(digits):
+		res.append(temp)
+		return
+	letters = dic[digits[i]]
+	for i in len(letters):
+		dfs(temp + letters[i], i+1, digits, res)
+
+
 def dfs(prefix, digits, offset, res):
 	if offset >= len(digits):
 		res.append(prefix)
@@ -59,3 +84,11 @@ def dfs(prefix, digits, offset, res):
 	for i in len(letters):
 		dfs(prefix + letters[i], digits, offset + 1, res)
 	return
+
+def dfs(prefix, digits, offset, res):
+	if offset >= len(digits):
+		res.append(prefix)
+		return
+	letters = dic[digits[offset] - '0']
+	for i in len(letters):
+		dfs(prefix + letters[i], digits, offset + 1, res)

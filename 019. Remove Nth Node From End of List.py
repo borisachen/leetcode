@@ -12,10 +12,10 @@ Given n will always be valid.
 Try to do this in one pass.
 
 """"
-Naive - on the 1st pass, count how many items, m.
+1. Naive - on the 1st pass, count how many items, m.
 on the second pass, go the m-nth node and remove it.
 
-Better:
+2. Better:
 0
 1->2->3->4->5
 d     c
@@ -35,6 +35,18 @@ def doit(head, n):
         tail = tail.next
     tail.next = tail.next.next
     return head
+
+def removeNthNodeFromEnd(head, n):
+	curr = head
+	for i in range(n):
+		curr = curr.next
+	tail = head
+	while curr:
+		curr = curr.next
+		tail = tail.next
+	tail.next = tail.next.next
+	return head
+
 
 # Definition for singly-linked list.
 # class ListNode(object):
@@ -58,3 +70,14 @@ class Solution(object):
 			tail = tail.next
 		tail.next = tail.next.next
 		return head
+
+
+
+
+
+
+
+
+
+
+
