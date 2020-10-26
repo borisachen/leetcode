@@ -82,7 +82,7 @@ Solution 2: Sort + DP
 Sort clips first.
 let dp[i] = minimum number of clips needed to get to time i
 Then for each clip, update dp[clip[0]] ~ dp[clip[1]].
-
+transition function: dp[i] = min(dp[i], dp[clip[0]]+1)
 Time O(NlogN + NT), Space O(T)
 
 int videoStitching(vector<vector<int>>& clips, int T) {
@@ -99,15 +99,22 @@ int videoStitching(vector<vector<int>>& clips, int T) {
 class Solution:
     def videoStitching(self, clips: List[List[int]], T: int) -> int:
         clips=sorted(clips)
-        dp = [101] * 101
+        # dp[i] = min number of clips needed to get to timestep i
+        dp = [101] * 101 
         for clip in clips:
             for i in range(clip[0] + 1, clip[1]+1):
+            	# transition: dp[i] = minimum of 
+            	#  dp[i]
+            	#  dp[start index of this clip] + 1
                 dp[i] = min(dp[i], dp[clip[0]]+1)
         return dp[T] if dp[T] < 101 else -1
+        # time - O(n log n + n*T)
+        # space = O(T)
 
 
 
-"""Solution 3: DP
+"""
+Solution 3: DP
 
 Loop on i form 0 to T,
 loop on all clips,
@@ -132,5 +139,15 @@ public int videoStitching(int[][] clips, int T) {
 """
 
 
-def videostitching()
+def videostitching(clips, T):
+	dp = [0] * (T+1)
+	dp[0] = 0
+	# for each time step (0, T+1)
+	for i in range(1, T+1):
+		for c in clips:
+			if c[0] <= i <= c[1]:
+				dp[i] = min(dp[i], dp[c[0]]+1)
+	return dp[T]
+	# time - O(N*T)
+	# space - O(T)
 
