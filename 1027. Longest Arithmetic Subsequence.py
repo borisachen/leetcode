@@ -35,50 +35,62 @@ Constraints:
 2 <= A.length <= 1000
 0 <= A[i] <= 500
 
+"""
+The main idea is to maintain a map of differences seen at each index.
 
+We iteratively build the map for a new index i, by considering all elements to the left one-by-one.
+For each pair of indices (i,j) and difference d = A[i]-A[j] considered, we check if there was an existing chain at the index j with difference d already.
+
+If yes, we can then extend the existing chain length by 1.
+Else, if not, then we can start a new chain of length 2 with this new difference d and (A[j], A[i]) as its elements.
+At the end, we can then return the maximum chain length that we have seen so far.
+
+Time Complexity: O(n^2)
+Space Complexity: O(n^2)
+"""
 class Solution {
     public int longestArithSeqLength(int[] A) {
         if (A.length <= 1) return A.length;
        
         int longest = 0;
         
-        // Declare a dp array that is an array of hashmaps.
-        // The map for each index maintains an element of the form-
-        //   (difference, length of max chain ending at that index with that difference).        
+        # Declare a dp array that is an array of hashmaps.
+        # The map for each index maintains an element of the form-
+        #   (difference, length of max chain ending at that index with that difference).        
         HashMap<Integer, Integer>[] dp = new HashMap[A.length];
         
         for (int i = 0; i < A.length; ++i) {
-            // Initialize the map.
+            # Initialize the map.
             dp[i] = new HashMap<Integer, Integer>();
         }
         
         for (int i = 1; i < A.length; ++i) {
             int x = A[i];
-            // Iterate over values to the left of i.
+            # Iterate over values to the left of i.
             for (int j = 0; j < i; ++j) {
                 int y = A[j];
                 int d = x - y;
                 
-                // We at least have a minimum chain length of 2 now,
-                // given that (A[j], A[i]) with the difference d, 
-                // by default forms a chain of length 2.
+                # We at least have a minimum chain length of 2 now,
+                # given that (A[j], A[i]) with the difference d, 
+                # by default forms a chain of length 2.
                 int len = 2;  
                 
                 if (dp[j].containsKey(d)) {
-                    // At index j, if we had already seen a difference d,
-                    // then potentially, we can add A[i] to the same chain
-                    // and extend it by length 1.
+                    # At index j, if we had already seen a difference d,
+                    # then potentially, we can add A[i] to the same chain
+                    # and extend it by length 1.
                     len = dp[j].get(d) + 1;
                 }
                 
-                // Obtain the maximum chain length already seen so far at index i 
-                // for the given differene d;
+                # Obtain the maximum chain length already seen so far at index i 
+                # for the given differene d;
                 int curr = dp[i].getOrDefault(d, 0);
                 
-                // Update the max chain length for difference d at index i.
+                # Update the max chain length for difference d at index i.
                 dp[i].put(d, Math.max(curr, len));
                 
-                // Update the global max.
+                # Update the global max.
                 longest = Math.max(longest, dp[i].get(d));
             }
         }
@@ -90,16 +102,21 @@ class Solution {
 def longestArithSeqLength(A):
 	longest = 0
 	n = len(A)
-	dp = [{}]* len(A)
-	for i in range(1, n):
-		for j in range(0, i):
-			d = x - A[j]
-			lent = 2
-			if d in dp[j]:
-				lent = dp[i][d] + 1
+	# dp[i] = dictionary of differences seen so far 
+	dp = [{}] * len(A)
+	# key = difference
+	# value = max(curr, length)
+	for i in range(1, n): # for each element A[i]
+		for j in range(0, i): # iterate over the values to the left of i
+			d = A[i] - A[j] # compute the difference, d
+			length = 2 # default minimum sequence length is 2
+			if d in dp[j]: # if we have seen this diff before, we can extend it by 1.
+				length = dp[i][d] + 1
+			# Obtain the maximum chain length already seen so far at index i 
+            # for the given differene d;
 			curr = dp[i][d] if d in dp[i] else 0
-			dp[i][d] = max(curr, lent)
-			longest = max(longest, dp[i][d])
+			dp[i][d] = max(curr, length) # Update the max chain length for difference d at index i.
+			longest = max(longest, dp[i][d]) # update the global max
 	return longest
 
 def longestArithSeqLength(self, A: List[int]):
@@ -114,12 +131,18 @@ def longestArithSeqLength(self, A: List[int]):
 	return max(dp.values())
 
 
+def longestArithSeqLength(A):
+	dp = {}
+	for i in range(1, len(A)):
+		for j in range(0, i):
+			d = A[j] - A[i]
+			if (j, d) in dp:
+				dp[i,d] = dp[j,d] + 1
+			else:
+				dp[i,d] = 2
+	return max(dp.values())
 
 
-
-
-
-=
 
 
 

@@ -111,8 +111,6 @@ class Solution:
         # time - O(n log n + n*T)
         # space = O(T)
 
-
-
 """
 Solution 3: DP
 
@@ -137,7 +135,6 @@ public int videoStitching(int[][] clips, int T) {
     return dp[T] == T + 1 ? -1 : dp[T];
 }
 """
-
 
 def videostitching(clips, T):
 	dp = [0] * (T+1)

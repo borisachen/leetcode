@@ -46,10 +46,12 @@ class Solution(object):
         :rtype: int
         """
         def dfs(node, lo, hi):
+        	# hi = largest value i've seen coming down from root to this node
+        	# lo = smallest value seen from root to this node
             if not node:
                 return hi - lo
             lo = min(node.val, lo)
-            hi = min(node.val, hi)
+            hi = max(node.val, hi)
             R = dfs(node.right, lo, hi)
             L = dfs(node.left, lo, hi)
             return max(L, R)
